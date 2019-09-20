@@ -1,0 +1,10 @@
+body {
+  background-color: rgb(219, 211, 212);
+  color: rgb(175, 84, 122);
+}
+
+.board {
+  display: flex;
+  align-items: flex-start;
+  border: 5px solid blue
+}
