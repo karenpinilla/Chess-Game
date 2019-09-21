@@ -1,5 +1,12 @@
+import React from 'react'
+
+import './square.styles.scss'
+
+
 const Square = () => {
     return (
-        <div></div>
+        <div className="square"></div>
     )
 }
+
+export default Square

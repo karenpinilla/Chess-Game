@@ -4,19 +4,15 @@ import Square from '../Square/Square'
 import "./Board.styles.scss";
 
 const Board = () => {
-  const [pieces, setPieces]= useState({})
   const [squares, setSquares]= useState([])
   const [rows, setRows] = useState([])
   const [cols, setCols] = useState([])
   const [currentPlayer, setCurrentPlayer]= useState('white')
-  const [moveInProgress, setMoveInProgress] = useState(false)
-  const [movingPiece, setMovingPiece] = useState(null)
   const [validMoves, setValidMoves] = useState(null)
 
   useEffect(() => {
-      return () => {
+    console.log('first render, componentDidMount')
         initialBoard()
-      }
   },[])
 
   const initialBoard = () => {
@@ -45,11 +41,15 @@ const Board = () => {
         counter++;
       }
     }
+console.log('rows', rows)
+console.log('cols', cols)
+console.log('squares', squares)
 
     setRows(rows);
     setCols(cols);
     setSquares(squares);
   }
+
 
 
 
@@ -67,12 +67,11 @@ const Board = () => {
   // }
 
 
-
   return (
+
     <div className="lists">
       <div className="list-wrapper">
-      <Square></Square>
-        <li>hello</li>
+      <Square>{cols}</Square>
       </div>
     </div>
   );
