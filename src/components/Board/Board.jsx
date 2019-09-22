@@ -11,7 +11,6 @@ const Board = () => {
   const [validMoves, setValidMoves] = useState(null)
 
   useEffect(() => {
-    console.log('first render, componentDidMount')
         initialBoard()
   },[])
 
@@ -33,7 +32,6 @@ const Board = () => {
           chessId: String(colNames[j] + (8 - i)),
           row: i,
           col: j,
-          piece: null
         }
         squares[counter] = square;
         rows[i][j] = square;
@@ -41,37 +39,32 @@ const Board = () => {
         counter++;
       }
     }
-console.log('rows', rows)
-console.log('cols', cols)
-console.log('squares', squares)
-
     setRows(rows);
     setCols(cols);
     setSquares(squares);
   }
 
+  let squares2 = squares.map((square, index) => {
+    return(
+      <Square
+      chessId={square.chessId}
+      key={index}
+      />
+    )
+  })
 
-
-
-  // const setAdjacents = ()=> {
-  //   // const {squares, rows, cols} = this.state;
-
-  //   squares.forEach ((square) => {
-  //     square.topLeft = (rows[square.row - 1] && cols[square.col - 1]) ? rows[square.row - 1][square.col - 1] : null;
-  //     square.topRight = (rows[square.row - 1] && cols[square.col + 1]) ? rows[square.row - 1][square.col + 1] : null;
-  //     square.bottomLeft = (rows[square.row + 1] && cols[square.col - 1]) ? rows[square.row + 1][square.col - 1] : null;
-  //     square.bottomRight = (rows[square.row + 1] && cols[square.col + 1]) ? rows[square.row + 1][square.col + 1] : null;
-  //   });
-
-  //   setSquares({squares: squares});
-  // }
-
+  let rows2 = [];
+  let chunk = 8;
+  for (let i = 0; i < squares2.length; i += chunk) {
+    rows2.push(squares2.slice(i, i + chunk));
+  }
 
   return (
-
-    <div className="lists">
-      <div className="list-wrapper">
-      <Square>{cols}</Square>
+    <div className="main">
+      <div className="board">
+      {rows2.map((row, index) => {
+        return <div className="row" key={index}>{row}</div>
+      })}
       </div>
     </div>
   );
