@@ -3,16 +3,15 @@ import React from 'react'
 import './square.styles.scss'
 
 
-const Square = ({squares, rows})=> {
+const Square = ({chessId})=> {
 
-    // const table = rows.map((row, idx)=>{
-    //     row.map((rowSquare, idx) => {
-    //       console.log('rowsquare', rowSquare.chessId)
-    //       return <div>{rowSquare.chessId}</div>
-    //     })
-    //   }) 
+    console.log('squares', chessId)
     return (
-        <div className="square"></div>
+        <div className="square">
+            <span className="chess-id">
+            {chessId}
+            </span>
+        </div>
     )
 }
 

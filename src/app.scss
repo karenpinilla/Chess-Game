@@ -1,9 +1,10 @@
-$light:rgb(219, 211, 212);
-$black: #333;
-
+@import './assets/colors.scss';
+@import './assets/global.scss';
+@import './assets//reset.scss';
+@import './assets/fonts.scss';
 
 body {
-  font-family: Lato, sans-serif;
+  font-family:$raleway;
   background-color: $light;
   font-size: 17px;
   color: $black;

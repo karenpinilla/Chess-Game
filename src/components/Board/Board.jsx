@@ -3,12 +3,14 @@ import Square from '../Square/Square'
 
 import "./Board.styles.scss";
 
+const knight = require('../../assets/images/knight.svg')
+
 const Board = () => {
   const [squares, setSquares]= useState([])
   const [rows, setRows] = useState([])
   const [cols, setCols] = useState([])
-  const [currentPlayer, setCurrentPlayer]= useState('white')
   const [validMoves, setValidMoves] = useState(null)
+  // const [currentPlayer, setCurrentPlayer]= useState('white')
 
   useEffect(() => {
         initialBoard()
@@ -58,6 +60,7 @@ const Board = () => {
   for (let i = 0; i < squares2.length; i += chunk) {
     rows2.push(squares2.slice(i, i + chunk));
   }
+
 
   return (
     <div className="main">
