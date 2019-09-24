@@ -1,18 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react';
+import axios from 'axios';
+import './square.styles.scss';
 
-import './square.styles.scss'
+const knight = require('../../assets/images/knight.svg');
 
+const Square = ({ chessId }) => {
+  const [position, setPosition] = useState('');
 
-const Square = ({chessId})=> {
+  const getPosition = e => {
+    event.preventDefault();
 
-    console.log('squares', chessId)
-    return (
-        <div className="square">
-            <span className="chess-id">
-            {chessId}
-            </span>
-        </div>
-    )
-}
+    setPosition(chessId);
 
-export default Square
+    axios
+      .post('/api/position', {
+        position: position,
+      })
+      .then(response => {
+        console.log('response from server', response);
+      });
+  };
+  return (
+    <div className='square' onClick={e => getPosition({ chessId })}>
+      <span className='chess-id'>{chessId}</span>
+    </div>
+  );
+};
+
+export default Square;

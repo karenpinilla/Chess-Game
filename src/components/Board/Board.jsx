@@ -1,20 +1,20 @@
-import React, {useEffect, useState} from "react";
-import Square from '../Square/Square'
+import React, { useEffect, useState } from 'react';
+import Square from '../Square/Square';
 
-import "./Board.styles.scss";
+import './Board.styles.scss';
 
-const knight = require('../../assets/images/knight.svg')
+const knight = require('../../assets/images/knight.svg');
 
 const Board = () => {
-  const [squares, setSquares]= useState([])
-  const [rows, setRows] = useState([])
-  const [cols, setCols] = useState([])
-  const [validMoves, setValidMoves] = useState(null)
+  const [squares, setSquares] = useState([]);
+  const [rows, setRows] = useState([]);
+  const [cols, setCols] = useState([]);
+  const [validMoves, setValidMoves] = useState(null);
   // const [currentPlayer, setCurrentPlayer]= useState('white')
 
   useEffect(() => {
-        initialBoard()
-  },[])
+    initialBoard();
+  }, []);
 
   const initialBoard = () => {
     const squares = [];
@@ -34,7 +34,7 @@ const Board = () => {
           chessId: String(colNames[j] + (8 - i)),
           row: i,
           col: j,
-        }
+        };
         squares[counter] = square;
         rows[i][j] = square;
         cols[j][i] = square;
@@ -44,16 +44,11 @@ const Board = () => {
     setRows(rows);
     setCols(cols);
     setSquares(squares);
-  }
+  };
 
   let squares2 = squares.map((square, index) => {
-    return(
-      <Square
-      chessId={square.chessId}
-      key={index}
-      />
-    )
-  })
+    return <Square chessId={square.chessId} key={index} />;
+  });
 
   let rows2 = [];
   let chunk = 8;
@@ -61,13 +56,16 @@ const Board = () => {
     rows2.push(squares2.slice(i, i + chunk));
   }
 
-
   return (
-    <div className="main">
-      <div className="board">
-      {rows2.map((row, index) => {
-        return <div className="row" key={index}>{row}</div>
-      })}
+    <div className='main'>
+      <div className='board'>
+        {rows2.map((row, index) => {
+          return (
+            <div className='row' key={index}>
+              {row}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

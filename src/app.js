@@ -1,14 +1,12 @@
-import React from "react";
-import Board from "./components/Board/Board";
+import React from 'react';
+import Board from './components/Board/Board';
 
-import "./app.scss";
-
+import './app.scss';
 
 const App = () => {
-
   return (
-    <div className="App">
-    <Board></Board>
+    <div className='App'>
+      <Board></Board>
     </div>
   );
 };
