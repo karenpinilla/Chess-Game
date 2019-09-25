@@ -16,7 +16,7 @@ const Board = () => {
     const squares = [];
     const rows = [];
     const cols = [];
-    const colNames = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+    const colNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
 
     for (let i = 0; i < 8; i++) {
       rows[i] = [];
