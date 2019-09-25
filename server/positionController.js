@@ -62,7 +62,7 @@ const currentPosition = (req, res, next) => {
   //   function reflect(n) {
   //     return n > 4 ? 9 - n : n;
   //   }
-  next();
+  //   next();
 };
 
 module.exports = { currentPosition };

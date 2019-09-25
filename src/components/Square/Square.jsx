@@ -1,27 +1,32 @@
 import React, { useState } from 'react';
+import Knight from '../Knight/Knight';
 import axios from 'axios';
-import './square.styles.scss';
 
-const knight = require('../../assets/images/knight.svg');
+import './Square.styles.scss';
 
 const Square = ({ chessId }) => {
-  const [position, setPosition] = useState('');
+  const [active, setActive] = useState(false);
 
-  const getPosition = e => {
+  const getPosition = chessId => {
     event.preventDefault();
+    console.log('chessId', chessId);
 
-    setPosition(chessId);
+    axios({
+      method: 'post',
+      url: '/api/position',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+      data: {
+        chessId,
+      },
+    }).then(response => {
+      console.log('response from server', response.data);
+    });
 
-    axios
-      .post('/api/position', {
-        position: position,
-      })
-      .then(response => {
-        console.log('response from server', response);
-      });
+    setActive(!active);
   };
+
   return (
-    <div className='square' onClick={e => getPosition({ chessId })}>
+    <div className='square' onClick={e => getPosition(chessId)}>
       <span className='chess-id'>{chessId}</span>
     </div>
   );

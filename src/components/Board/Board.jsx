@@ -3,13 +3,9 @@ import Square from '../Square/Square';
 
 import './Board.styles.scss';
 
-const knight = require('../../assets/images/knight.svg');
-
 const Board = () => {
   const [squares, setSquares] = useState([]);
-  const [rows, setRows] = useState([]);
-  const [cols, setCols] = useState([]);
-  const [validMoves, setValidMoves] = useState(null);
+  // const [validMoves, setValidMoves] = useState(null);
   // const [currentPlayer, setCurrentPlayer]= useState('white')
 
   useEffect(() => {
@@ -41,8 +37,6 @@ const Board = () => {
         counter++;
       }
     }
-    setRows(rows);
-    setCols(cols);
     setSquares(squares);
   };
 

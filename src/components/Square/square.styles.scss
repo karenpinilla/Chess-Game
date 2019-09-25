@@ -1,20 +1,20 @@
 @import '../../assets/colors.scss';
 
 .square {
-  height: 50px;
-  width: 50px;
+  flex: 1 1 0;
+  display: flex;
+  flex-flow: column nowrap;
+  border: 1px solid $black;
+  position: relative;
   background-color: $medium-gray;
+  max-height: 100vw;
+  max-width: 100vw;
 
-  .chess-id {
-    color: $white;
+  .square-meta {
+    display: flex;
+    justify-content: space-between;
   }
-  // .piece {
-  //     display: flex;
-  //     flex: 1 1 auto;
-  //     flex-flow: column nowrap;
-  //     align-items: center;
-  //     justify-content: center;
-  //     font-size: 3em;
-  //     cursor: pointer;
-  //   }
+}
+.chess-id {
+  color: $white;
 }
