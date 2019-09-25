@@ -40,20 +40,20 @@ const Board = () => {
     setSquares(squares);
   };
 
-  let squares2 = squares.map((square, index) => {
+  let allSquares = squares.map((square, index) => {
     return <Square chessId={square.chessId} key={index} />;
   });
 
-  let rows2 = [];
+  let allRows = [];
   let chunk = 8;
-  for (let i = 0; i < squares2.length; i += chunk) {
-    rows2.push(squares2.slice(i, i + chunk));
+  for (let i = 0; i < allSquares.length; i += chunk) {
+    allRows.push(allSquares.slice(i, i + chunk));
   }
 
   return (
     <div className='main'>
       <div className='board'>
-        {rows2.map((row, index) => {
+        {allRows.map((row, index) => {
           return (
             <div className='row' key={index}>
               {row}

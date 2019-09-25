@@ -15,7 +15,7 @@ const Square = ({ chessId }) => {
       url: '/api/position',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
       data: {
-        chessId,
+        id: chessId,
       },
     }).then(response => {
       console.log('response from server', response.data);
