@@ -17,12 +17,12 @@ const Board = () => {
     const rows = [];
     const cols = [];
     const colNames = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-    // pre-populate rows & cols with blank arrays
+
     for (let i = 0; i < 8; i++) {
       rows[i] = [];
       cols[i] = [];
     }
-    // fill board with squares
+
     for (let counter = 0, i = 0; i < 8; i++) {
       for (let j = 0; j < 8; j++) {
         let square = {

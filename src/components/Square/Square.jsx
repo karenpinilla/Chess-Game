@@ -9,7 +9,6 @@ const Square = ({ chessId }) => {
 
   const getPosition = chessId => {
     event.preventDefault();
-    console.log('chessId', chessId);
 
     axios({
       method: 'post',

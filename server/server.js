@@ -8,10 +8,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(bodyParser.json());
 
-// app.use((req, res) => {
-//   res.setHeader('Content-Type', 'text/plain');
-// });
-
 app.post('/api/position', (req, res) => {
   console.log('from post body', req.body);
   res.send('Hello World!');
