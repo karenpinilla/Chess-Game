@@ -5,6 +5,7 @@ import './Board.styles.scss';
 
 const Board = () => {
   const [squares, setSquares] = useState([]);
+  const [currentPosition, setCurrentPosition] = useState([]);
   // const [validMoves, setValidMoves] = useState(null);
   // const [currentPlayer, setCurrentPlayer]= useState('white')
 
@@ -30,6 +31,7 @@ const Board = () => {
           chessId: String(colNames[j] + (8 - i)),
           row: i,
           col: j,
+          possiblePosition: false,
         };
         squares[counter] = square;
         rows[i][j] = square;
@@ -40,6 +42,7 @@ const Board = () => {
     setSquares(squares);
   };
 
+  //an array of 64 square react components
   let allSquares = squares.map((square, index) => {
     return <Square chessId={square.chessId} key={index} />;
   });

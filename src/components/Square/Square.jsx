@@ -13,7 +13,7 @@ const Square = ({ chessId }) => {
     axios({
       method: 'post',
       url: '/api/position',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+      headers: { 'Content-Type': 'application/json; charset=UTF-8' },
       data: {
         id: chessId,
       },

@@ -7,8 +7,8 @@
   border: 1px solid $black;
   position: relative;
   background-color: $medium-gray;
-  max-height: 100vw;
-  max-width: 100vw;
+  max-height: 100%;
+  max-width: 100%;
 
   .square-meta {
     display: flex;
