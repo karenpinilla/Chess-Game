@@ -13,7 +13,8 @@ To run this project, install it locally using npm:
 ```
 $ cd into folder
 $ npm install
-$ npm start, which will start hot reloading and nodemon, and fire up browser with http://localhost:3000/
+$ npm start, which will start hot reloading and nodemon
+$ Go to http://localhost:3000/
 ```
 
 ## Folder Structure:
@@ -47,5 +48,5 @@ API Testing
 
 UI Testing
 
-1. When the square is clicked, corresponding square receives a knight piece.
-2. Possible moves are highlighted
+1. When chosen square is clicked, corresponding square receives a knight piece.
+2. Possible moves are highlighted.
