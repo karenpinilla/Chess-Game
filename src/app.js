@@ -6,7 +6,7 @@ import './App.module.scss';
 const App = () => {
   return (
     <div className='App'>
-      <h1>Knight's Journey</h1>
+      <h1>Knight's Journeyssss</h1>
       <Board></Board>
     </div>
   );
