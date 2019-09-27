@@ -1,8 +1,8 @@
 # Knight's Journey!
 
-![]('https://ibb.co/YpwPxVw')
-
 Find your Knight's Journey two moves ahead.
+
+![](https://i.ibb.co/YpwPxVw/screenshot.png)
 
 ## Setup
 
