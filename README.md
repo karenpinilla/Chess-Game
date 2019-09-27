@@ -9,7 +9,7 @@ To run this project, install it locally using npm:
 ```
 $ cd into folder
 $ npm install
-$ npm run start, which will start hot reloading and nodemon, and fire up browser with http://localhost:3000/
+$ npm start, which will start hot reloading and nodemon, and fire up browser with http://localhost:3000/
 ```
 
 ## Folder Structure:
