@@ -1,12 +1,12 @@
 import React from 'react';
 import Knight from '../Knight/Knight';
 
-import './Square.styles.scss';
+import './Square.module.scss';
 
-const Square = ({ on, getPosition, chessId }) => {
+const Square = ({ on, knight, getPosition, chessId }) => {
   return (
     <div className={on ? 'highlighted' : 'square'} onClick={e => getPosition(e, chessId)}>
-      <span className='chess-id'>{chessId}</span>
+      <span className={knight ? 'knight chess-id' : 'chess-id'}>{chessId}</span>
     </div>
   );
 };

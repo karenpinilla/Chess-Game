@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import Square from '../Square/Square';
-
-import './Board.styles.scss';
+import axios from 'axios';
+import './Board.module.scss';
 
 const Board = () => {
   const [squares, setSquares] = useState([]);
   const [validMoves, setValidMoves] = useState([]);
-  const [knight, setKnight] = useState(false);
+  // const [knight, setKnight] = useState(false);
+  const [currentPosition, setCurrentPosition] = useState(false);
 
   useEffect(() => {
     initialBoard();
@@ -44,7 +44,6 @@ const Board = () => {
 
   const getPosition = (e, chessId) => {
     e.preventDefault();
-
     axios({
       method: 'post',
       url: '/api/position',
@@ -52,17 +51,22 @@ const Board = () => {
       data: {
         id: chessId,
       },
-    }).then(response => {
-      setValidMoves(response.data);
-    });
-    setKnight(!knight);
+    })
+      .then(response => {
+        setValidMoves(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    // setKnight(!knight);
+    setCurrentPosition(chessId);
   };
 
-  //an array of 64 square react components
   let allSquares = squares.map((square, index) => {
     return (
       <Square
         on={validMoves.includes(square.chessId)}
+        knight={square.chessId === currentPosition}
         getPosition={getPosition}
         chessId={square.chessId}
         key={index}
