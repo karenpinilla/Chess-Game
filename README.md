@@ -1,5 +1,7 @@
 # Knight's Journey!
 
+![](screenshot.png)
+
 Find your Knight's Journey two moves ahead.
 
 ## Setup
