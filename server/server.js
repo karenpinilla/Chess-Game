@@ -7,7 +7,7 @@ const port = 3001;
 app.use(bodyParser.json());
 
 app.post('/api/position', positionController.currentPosition, (req, res) => {
-  res.send();
+  res.json(res.locals.positions);
 });
 
 app.listen(port, () => console.log(`App listening on port ${port}!`));

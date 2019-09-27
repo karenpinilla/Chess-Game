@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Square from '../Square/Square';
 
 import './Board.styles.scss';
 
 const Board = () => {
   const [squares, setSquares] = useState([]);
-  const [currentPosition, setCurrentPosition] = useState([]);
-  // const [validMoves, setValidMoves] = useState(null);
-  // const [currentPlayer, setCurrentPlayer]= useState('white')
+  const [validMoves, setValidMoves] = useState([]);
+  const [knight, setKnight] = useState(false);
 
   useEffect(() => {
     initialBoard();
@@ -42,9 +42,32 @@ const Board = () => {
     setSquares(squares);
   };
 
+  const getPosition = (e, chessId) => {
+    e.preventDefault();
+
+    axios({
+      method: 'post',
+      url: '/api/position',
+      headers: { 'Content-Type': 'application/json; charset=UTF-8' },
+      data: {
+        id: chessId,
+      },
+    }).then(response => {
+      setValidMoves(response.data);
+    });
+    setKnight(!knight);
+  };
+
   //an array of 64 square react components
   let allSquares = squares.map((square, index) => {
-    return <Square chessId={square.chessId} key={index} />;
+    return (
+      <Square
+        on={validMoves.includes(square.chessId)}
+        getPosition={getPosition}
+        chessId={square.chessId}
+        key={index}
+      />
+    );
   });
 
   let allRows = [];
@@ -52,6 +75,8 @@ const Board = () => {
   for (let i = 0; i < allSquares.length; i += chunk) {
     allRows.push(allSquares.slice(i, i + chunk));
   }
+
+  for (let i = 0; i < validMoves.length; i++) {}
 
   return (
     <div className='main'>
