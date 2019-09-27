@@ -1,6 +1,6 @@
 # Knight's Journey!
 
-![](screenshot.png)
+![](./assets/images/screenshot.pngg)
 
 Find your Knight's Journey two moves ahead.
 
