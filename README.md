@@ -2,7 +2,9 @@
 
 Find your Knight's Journey two moves ahead.
 
-![](https://i.ibb.co/YpwPxVw/screenshot.png)
+<img src="https://i.ibb.co/YpwPxVw/screenshot.png"
+     alt="Screenshot icon"
+     style="float: left; margin-right: 10px;" />
 
 ## Setup
 
