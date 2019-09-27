@@ -1,8 +1,10 @@
 # Knight's Journey!
 
-![](screenshot.png)
-
 Find your Knight's Journey two moves ahead.
+
+<img src="https://i.ibb.co/YpwPxVw/screenshot.png"
+     alt="Screenshot icon"
+     style="float: center;" />
 
 ## Setup
 

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import Square from '../Square/Square';
+import Row from '../Row/Row';
+
 import axios from 'axios';
 import './Board.module.scss';
 
 const Board = () => {
   const [squares, setSquares] = useState([]);
   const [validMoves, setValidMoves] = useState([]);
-  // const [knight, setKnight] = useState(false);
   const [currentPosition, setCurrentPosition] = useState(false);
 
   useEffect(() => {
@@ -29,9 +29,6 @@ const Board = () => {
         let square = {
           index: counter,
           chessId: String(colNames[j] + (8 - i)),
-          row: i,
-          col: j,
-          possiblePosition: false,
         };
         squares[counter] = square;
         rows[i][j] = square;
@@ -44,6 +41,9 @@ const Board = () => {
 
   const getPosition = (e, chessId) => {
     e.preventDefault();
+
+    setCurrentPosition(chessId);
+
     axios({
       method: 'post',
       url: '/api/position',
@@ -56,42 +56,19 @@ const Board = () => {
         setValidMoves(response.data);
       })
       .catch(error => {
-        console.log(error);
+        console.error(error);
       });
-    // setKnight(!knight);
-    setCurrentPosition(chessId);
   };
-
-  let allSquares = squares.map((square, index) => {
-    return (
-      <Square
-        on={validMoves.includes(square.chessId)}
-        knight={square.chessId === currentPosition}
-        getPosition={getPosition}
-        chessId={square.chessId}
-        key={index}
-      />
-    );
-  });
-
-  let allRows = [];
-  let chunk = 8;
-  for (let i = 0; i < allSquares.length; i += chunk) {
-    allRows.push(allSquares.slice(i, i + chunk));
-  }
-
-  for (let i = 0; i < validMoves.length; i++) {}
 
   return (
     <div className='main'>
       <div className='board'>
-        {allRows.map((row, index) => {
-          return (
-            <div className='row' key={index}>
-              {row}
-            </div>
-          );
-        })}
+        <Row
+          squares={squares}
+          validMoves={validMoves}
+          currentPosition={currentPosition}
+          getPosition={getPosition}
+        ></Row>
       </div>
     </div>
   );

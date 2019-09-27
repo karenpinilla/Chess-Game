@@ -15,29 +15,3 @@
   width: 60vw;
   height: 60vw;
 }
-
-.row {
-  max-width: 100%;
-  display: flex;
-  border-right: 3px solid $black;
-  border-left: 3px solid $black;
-  height: 12.5%;
-  margin: auto;
-
-  &:nth-child(odd) .square:nth-child(even) {
-    background: $light-gray;
-  }
-
-  &:nth-child(even) .square:nth-child(odd) {
-    background: $light-gray;
-  }
-
-  &:first-child {
-    border-top: 3px solid $black;
-  }
-
-  // hack - chrome doesn't support last-of-type for .class selectors
-  &:nth-child(8) {
-    border-bottom: 3px solid $black;
-  }
-}
